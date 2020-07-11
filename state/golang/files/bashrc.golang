@@ -1,0 +1,2 @@
+export PATH=/opt/golang/current/go/bin
+export GO111MODULE=on
