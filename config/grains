@@ -1,0 +1,5 @@
+#  example grains
+#  the user data identifies the primary user account for a desktop installation
+BI_USER_NAME: "nate" # system user login name
+BI_USER_FULL_NAME: "Nate Marks"
+BI_USER_EMAIL: "npmarks@gmail.com"
