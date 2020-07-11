@@ -13,7 +13,7 @@ install_golang:
     - target: /opt/golang/{{ pillar['golang']['version'] }}
 
 
-/etc.skel/bashrc.golang:
+/etc/skel/bashrc.golang:
   file.managed:
     - source: salt://golang/files/bashrc.golang
     - user: root
