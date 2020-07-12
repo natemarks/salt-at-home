@@ -1,2 +1,2 @@
 docker-compose:
-    version: '1.26.1'
+    version: '1.26.2'
