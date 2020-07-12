@@ -3,7 +3,6 @@ docker.repo:
     - name: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ salt['grains.get']('oscodename')}} stable"
     - humanname: Docker Repo
     - key_url: https://download.docker.com/linux/ubuntu/gpg
-    - gpgautoimport: True
     - gpgcheck: 1
 
 docker.prerequisites:
