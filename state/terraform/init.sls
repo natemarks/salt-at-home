@@ -1,7 +1,7 @@
-
+{% set version = {{ pillar['terraform']['version']  }} %}
 extract_terraform:
   archive.extracted:
-    - name: /opt/terraform/{{ pillar['terraform']['version']  }}
+    - name: /opt/terraform/{{ version }}
     - source: https://releases.hashicorp.com/terraform/{{ pillar['terraform']['version']  }}/terraform_{{ pillar['terraform']['version']  }}_linux_amd64.zip
     - source_hash: https://releases.hashicorp.com/terraform/{{ pillar['terraform']['version']  }}/terraform_{{ pillar['terraform']['version']  }}_SHA256SUMS
     - user: root
