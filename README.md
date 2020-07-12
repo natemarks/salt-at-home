@@ -13,3 +13,5 @@ TODO:
  - work in the bash/zsh completions for tools that offer it.
  - add pipenv/pyenv
  - vim
+ - jetbrains-toolbox
+ - vscode (snap install)
