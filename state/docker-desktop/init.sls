@@ -3,7 +3,7 @@ docker.repo:
     - name: "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
     - humanname: Docker Repo
     - baseurl: https://download.docker.com/linux/ubuntu
-    - gpgkey: https://download.docker.com/linux/ubuntu/gpg
+    - key_url: https://download.docker.com/linux/ubuntu/gpg
     - gpgcheck: 1
 
 docker.prerequisites:
