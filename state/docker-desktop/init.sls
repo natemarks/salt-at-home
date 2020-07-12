@@ -28,7 +28,7 @@ docker.packages:
     - require:
       - docker.repo
 
-/opt/docker-compose/current:
+/opt/docker-compose:
   file.directory:
     - user: root
     - group: root
@@ -39,5 +39,20 @@ docker.packages:
   file.managed:
     - source: https://github.com/docker/compose/releases/download/{{ compose_version }}/docker-compose-{{ salt['grains.get']('kernel')}}-{{ salt['grains.get']('cpuarch')}}
     - source_hash: https://github.com/docker/compose/releases/download/{{ compose_version }}/docker-compose-{{ salt['grains.get']('kernel')}}-{{ salt['grains.get']('cpuarch') }}.sha256
+    - mode: 755
     - require:
-      - /opt/docker-compose/current
+      - /opt/docker-compose
+
+docker-compose_install_alternative:
+  alternatives.install:
+    - name: docker-compose
+    - link: /usr/bin/docker-compose
+    - path: /opt/docker-compose/docker-compose-{{ compose_version }}
+    - priority: 30
+    - require:
+      - /opt/docker-compose/docker-compose-{{ compose_version }}
+
+docker-compose_set_alternative:
+  alternatives.set:
+  - name: docker-compose
+  - path: /opt/docker-compose/docker-compose-{{ compose_version }}
