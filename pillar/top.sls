@@ -4,3 +4,4 @@ base:
     - docker-desktop
     - terraform
     - terragrunt
+    - packer
