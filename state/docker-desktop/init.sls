@@ -2,9 +2,8 @@ docker.repo:
   pkgrepo.managed:
     - name: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ salt['grains.get']('oscodename')}} stable"
     - humanname: Docker Repo
-    - baseurl: https://download.docker.com/linux/ubuntu
     - key_url: https://download.docker.com/linux/ubuntu/gpg
-    - key_id: 0EBFCD88
+    - gpgautoimport: True
     - gpgcheck: 1
 
 docker.prerequisites:
