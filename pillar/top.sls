@@ -1,3 +1,4 @@
 base:
   '*':
     - golang
+    - docker-desktop
