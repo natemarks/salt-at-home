@@ -1,3 +1,7 @@
+{% set compose_config = salt['pillar.get']('docker-compose') %}
+{% set compose_version = compose_config['version'] %}
+
+
 docker.repo:
   pkgrepo.managed:
     - name: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ salt['grains.get']('oscodename')}} stable"
@@ -33,5 +37,7 @@ docker.packages:
 
 /opt/docker-compose/docker-compose-{{ salt['pillar.get]('docker-desktop:version') }}:
   file.managed:
-    - source: https://github.com/docker/compose/releases/download/{{ salt['pillar.get]('docker-desktop:version') }}/docker-compose-{{ salt['grains.get']('kernel')}}-{{ salt['grains.get']('cpu_arch')}}
-    - source_hash: https://github.com/docker/compose/releases/download/{{ salt['pillar.get]('docker-desktop:version') }}/docker-compose-{{ salt['grains.get']('kernel')}}-{{ salt['grains.get']('cpu_arch')}}.sha256
+    - source: https://github.com/docker/compose/releases/download/{{ compose_version }}/docker-compose-{{ salt['grains.get']('kernel')}}-{{ salt['grains.get']('cpu_arch')}}
+    - source_hash: https://github.com/docker/compose/releases/download/{{ compose_version }}/docker-compose-{{ salt['grains.get']('kernel')}}-{{ salt['grains.get']('cpu_arch')}}.sha256
+    - require:
+      - /opt/docker-compose/current
