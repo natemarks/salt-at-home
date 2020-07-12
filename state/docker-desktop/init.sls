@@ -23,3 +23,9 @@ docker.packages:
       - containerd.io
     - require:
       - docker.repo
+
+/opt/docker-compose/current:
+  file.directory:
+    - user: root
+    - group: root
+    - dir_mode: 755
