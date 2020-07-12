@@ -29,3 +29,4 @@ docker.packages:
     - user: root
     - group: root
     - dir_mode: 755
+    - makedirs: True
