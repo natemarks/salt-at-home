@@ -35,7 +35,7 @@ docker.packages:
     - dir_mode: 755
     - makedirs: True
 
-/opt/docker-compose/docker-compose-{{ salt['pillar.get]('docker-desktop:version') }}:
+/opt/docker-compose/docker-compose-{{ scompose_version }}:
   file.managed:
     - source: https://github.com/docker/compose/releases/download/{{ compose_version }}/docker-compose-{{ salt['grains.get']('kernel')}}-{{ salt['grains.get']('cpu_arch')}}
     - source_hash: https://github.com/docker/compose/releases/download/{{ compose_version }}/docker-compose-{{ salt['grains.get']('kernel')}}-{{ salt['grains.get']('cpu_arch')}}.sha256
