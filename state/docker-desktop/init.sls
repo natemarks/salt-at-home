@@ -31,7 +31,7 @@ docker.packages:
     - dir_mode: 755
     - makedirs: True
 
-/opt/docker-compose/docker-compose-{{ salt['pillar.get]('docker-compose:version') }}:
+/opt/docker-compose/docker-compose-{{ salt['pillar.get]('docker-desktop:version') }}:
   file.managed:
-    - source: https://github.com/docker/compose/releases/download/{{ salt['pillar.get]('docker-compose:version') }}/docker-compose-{{ salt['grains.get']('kernel')}}-{{ salt['grains.get']('cpu_arch')}}
-    - source_hash: https://github.com/docker/compose/releases/download/{{ salt['pillar.get]('docker-compose:version') }}/docker-compose-{{ salt['grains.get']('kernel')}}-{{ salt['grains.get']('cpu_arch')}}.sha256
+    - source: https://github.com/docker/compose/releases/download/{{ salt['pillar.get]('docker-desktop:version') }}/docker-compose-{{ salt['grains.get']('kernel')}}-{{ salt['grains.get']('cpu_arch')}}
+    - source_hash: https://github.com/docker/compose/releases/download/{{ salt['pillar.get]('docker-desktop:version') }}/docker-compose-{{ salt['grains.get']('kernel')}}-{{ salt['grains.get']('cpu_arch')}}.sha256
