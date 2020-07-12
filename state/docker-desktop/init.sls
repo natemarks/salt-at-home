@@ -1,4 +1,11 @@
-docker.packages:
+docker.repo:
+  pkgrepo.managed:
+    - humanname: Docker Repo
+    - baseurl: https://download.docker.com/linux/ubuntu
+    - gpgkey: https://download.docker.com/linux/ubuntu/gpg
+    - gpgcheck: 1
+
+docker.prerequisites:
   pkg.installed:
     - pkgs:
       - apt-transport-https
@@ -7,9 +14,12 @@ docker.packages:
       - gnupg-agent
       - software-properties-common
 
-docker.repo:
-  pkgrepo.managed:
-    - humanname: Docker Repo
-    - baseurl: https://download.docker.com/linux/ubuntu
-    - gpgkey: https://download.docker.com/linux/ubuntu/gpg
-    - gpgcheck: 1
+docker.packages:
+  pkg.installed:
+    - refresh: True
+    - pkgs:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+    - require:
+      - docker.repo
