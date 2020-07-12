@@ -6,3 +6,4 @@ Using Saltstack to my tools on my personal Ubuntu 20.04 machine.
  - state/docker-desktop: installs docker engine and docker-compose. upgrade by editing pillar.
  - state/terraform: installs terraform and uses alternatives to put it in the path. upgrade by editing pillar.
  - state/terragrunt: installs terragrunt and uses alternatives to put it in the path. upgrade by editing pillar.
+ - state/packer: installs packer and uses alternatives to put it in the path. upgrade by editing pillar.
