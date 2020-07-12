@@ -1,4 +1,4 @@
-{% set version = {{ pillar['terraform']['version']  }} %}
+{% set version = salt['pillar.get']('terraform:version') %}
 extract_terraform:
   archive.extracted:
     - name: /opt/terraform/{{ version }}
