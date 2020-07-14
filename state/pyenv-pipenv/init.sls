@@ -1,5 +1,6 @@
 include:
   - shell
+  - git
 
 pyenv-pipenv-packages:
   pkg:
@@ -22,6 +23,9 @@ pyenv-pipenv-packages:
       - libffi-dev
       - liblzma-dev
       - python-openssl
+      - git
+      -require:
+        - git.repo
 
 
 pyenv_clone:
