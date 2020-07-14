@@ -1,3 +1,6 @@
+include:
+  - shell
+
 extract_golang:
   archive.extracted:
     - name: /opt/golang/{{ pillar['golang']['version'] }} 
@@ -13,10 +16,15 @@ install_golang:
     - target: /opt/golang/{{ pillar['golang']['version'] }}
 
 
-/etc/skel/bashrc.golang:
+{% for shell_dir in ["bashrc.d", "zshrc.d"] %}
+/etc/{{ shell_dir }}/golang.sh:
   file.managed:
-    - source: salt://golang/files/bashrc.golang
+    - source: salt://golang/files/golang.sh
     - user: root
     - group: root
     - mode: 644
     - backup: minion
+    - require:
+      - /etc/bashrc.d
+      - /etc/zshrc.d
+{% endfor %}
