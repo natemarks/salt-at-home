@@ -13,9 +13,12 @@ include:
     - group: root
     - dir_mode: 755
 
-/etc/bashrc.d/autojump.sh:
+
+{% for shell_dir in ["bashrc.d", "zshrc.d"] %}
+/etc/{{ shell_dir }}/autojump.sh:
   file.symlink:
     - target: /usr/share/autojump/autojump.sh
     - force: True
     - require:
       - required_packages
+{% endfor %}
