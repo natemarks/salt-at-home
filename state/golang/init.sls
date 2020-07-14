@@ -25,6 +25,5 @@ install_golang:
     - mode: 644
     - backup: minion
     - require:
-      - /etc/bashrc.d
-      - /etc/zshrc.d
+      - /etc/{{ shell_dir }}
 {% endfor %}
