@@ -38,7 +38,7 @@ pyenv_clone:
       - git: pyenv_clone
 
 pipenv:
-  pip.installed:
+  pkg.installed:
     - require:
       - git: pyenv_clone
 
