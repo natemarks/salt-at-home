@@ -60,5 +60,14 @@ docker_user:
     - name: {{ grains['BI_USER_NAME'] }}
     - groups:
       - docker
+      - {{ grains['BI_USER_NAME'] }}
+      - adm
+      - cdrom
+      - sudo
+      - dip
+      - plugdev
+      - lpadmin
+      - lxd
+      - sambashare
     - require:
       - docker.packages
