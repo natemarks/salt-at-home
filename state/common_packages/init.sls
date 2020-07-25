@@ -12,5 +12,6 @@ required_packages:
       - fzf
       - shellcheck
       - vim
+      - awscli
     - require:
       - remove_unwanted_packages
