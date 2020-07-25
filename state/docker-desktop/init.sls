@@ -54,3 +54,11 @@ docker-compose_set_alternative:
   alternatives.set:
   - name: docker-compose
   - path: /opt/docker-compose/docker-compose-{{ version }}
+
+docker_user:
+  user.present:
+    - name: {{ grains['BI_USER_NAME'] }}
+    - groups:
+      - docker
+    - require:
+      - docker.packages
