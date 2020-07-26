@@ -15,15 +15,33 @@ install_golang:
     - name: /opt/golang/current
     - target: /opt/golang/{{ pillar['golang']['version'] }}
 
-
 {% for shell_dir in ["bashrc.d", "zshrc.d"] %}
 /etc/{{ shell_dir }}/golang.sh:
   file.managed:
-    - source: salt://golang/files/golang.sh
+    - source: salt://golang/files/golang.sh.j2
     - user: root
     - group: root
     - mode: 644
+    - template: jinja
     - backup: minion
     - require:
       - /etc/{{ shell_dir }}
 {% endfor %}
+
+{% for gdir in ['bin', 'src', 'pkg']%}
+/home/{{ grains['BI_USER_NAME'] }}/go/{{ gdir }}:
+  file.directory:
+    - user: {{ grains['BI_USER_NAME'] }}
+    - group: {{ grains['BI_USER_NAME'] }}
+    - dir_mode: 755
+    - makedirs: True
+{% endfor %}
+
+/home/{{ grains['BI_USER_NAME'] }}/go/src/{{ pillar['golang']['git_host'] }}/{{ pillar['golang']['git_host_user'] }}:
+  file.directory:
+    - user: {{ grains['BI_USER_NAME'] }}
+    - group: {{ grains['BI_USER_NAME'] }}
+    - dir_mode: 755
+    - makedirs: True
+    - require:
+      - /home/{{ grains['BI_USER_NAME'] }}/go/src
