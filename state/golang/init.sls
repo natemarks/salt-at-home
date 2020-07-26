@@ -28,7 +28,7 @@ install_golang:
       - /etc/{{ shell_dir }}
 {% endfor %}
 
-{% for gdir in ['bin', 'src', 'pkg']%}
+{% for gdir in ['bin', 'src']%}
 /home/{{ grains['BI_USER_NAME'] }}/go/{{ gdir }}:
   file.directory:
     - user: {{ grains['BI_USER_NAME'] }}
