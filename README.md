@@ -3,6 +3,11 @@
 Using Saltstack to my tools on my personal Ubuntu 20.04 machine.
 
 ```bash
+# add the gpg key
+wget -O - https://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest/SALTSTACK-GPG-KEY.pub | sudo apt-key add -
+# add the repo
+echo "deb http://repo.saltstack.com/apt/ubuntu/18.04/amd64/latest bionic main" | sudo tee /etc/apt/sources.list.d/saltstack.list
+
 curl -o bootstrap-salt.sh -L https://bootstrap.saltstack.com
 sudo sh bootstrap-salt.sh -P -x python3
 ```
