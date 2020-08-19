@@ -12,6 +12,6 @@ required_packages:
       - fzf
       - shellcheck
       - vim
-      - awscli
+      - python3-venv
     - require:
       - remove_unwanted_packages
