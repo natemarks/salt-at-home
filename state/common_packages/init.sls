@@ -10,6 +10,7 @@ required_packages:
     - names:
       - autojump
       - fzf
+      - ripgrep
       - shellcheck
       - vim
       - python3-venv
