@@ -5,6 +5,7 @@ after that, running nvim will auto install vimplug and autoload the plugins
 
  
 ## TODO:
+fugitive
  add viom-rooter
   - set project files *.py, *.sls, *.go. *.yml, yaml, txt
   - set non-project root to home
