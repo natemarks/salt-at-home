@@ -5,3 +5,4 @@ base:
     - terraform
     - terragrunt
     - packer
+    - minikube
