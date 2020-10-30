@@ -1,7 +1,7 @@
 
 kubectl.repo:
   pkgrepo.managed:
-    - name: "deb [arch=amd64] https://apt.kubernetes.io/ {{ salt['grains.get']('oscodename')}} main"
+    - name: "deb [arch=amd64] https://apt.kubernetes.io/ kubernetes-{{ salt['grains.get']('oscodename')}} main"
     - humanname: Kubectl Repo
     - key_url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
     - gpgcheck: 1
